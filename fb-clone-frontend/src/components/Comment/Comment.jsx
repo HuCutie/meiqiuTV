@@ -8,6 +8,7 @@ import useFetch from "../../hooks/useFetch";
 import useConfirmation from "../Confirmation/useConfirmation";
 import Input from "../Input/Input";
 import Options from "../Options/Options";
+import getDateString from "../../utils/getDateString"; // ✅ 引入时间格式化工具
 import "./comment.css";
 
 const Comment = ({ comment, postId }) => {
@@ -80,6 +81,7 @@ const Comment = ({ comment, postId }) => {
 					<p className="comment__text">
 						{comment?.replyTo && <span>@{comment.replyTo}</span>} {comment?.comment}
 					</p>
+					<p>{getDateString(comment?.commentedAt)}</p>
 				</div>
 				<Options options={options} id={comment._id} />
 			</div>
