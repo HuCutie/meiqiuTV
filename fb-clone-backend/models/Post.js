@@ -43,7 +43,7 @@ const PostSchema = new mongoose.Schema(
 				},
 				commentedAt: {
 					type: Date,
-					default: new Date(),
+					default: Date.now,
 					required: true,
 				},
 				replies: [
@@ -63,7 +63,7 @@ const PostSchema = new mongoose.Schema(
 						},
 						commentedAt: {
 							type: Date,
-							default: new Date(),
+							default: Date.now,
 							required: true,
 						},
 						replyTo: {

@@ -8,12 +8,13 @@ import useFetch from "../../hooks/useFetch";
 import useConfirmation from "../Confirmation/useConfirmation";
 import Input from "../Input/Input";
 import Options from "../Options/Options";
-import getDateString from "../../utils/getDateString"; // ✅ 引入时间格式化工具
+import getDateString from "../../utils/getDateString";
 import "./comment.css";
 
 const Comment = ({ comment, postId }) => {
 	const { users } = useSelector(state => state.users);
 	const user = users.find(user => user._id === comment.commentedBy);
+    const commentedAt = getDateString(comment?.commentedAt);
 
 	const customFetch = useFetch();
 	const dispatch = useDispatch();
@@ -81,7 +82,7 @@ const Comment = ({ comment, postId }) => {
 					<p className="comment__text">
 						{comment?.replyTo && <span>@{comment.replyTo}</span>} {comment?.comment}
 					</p>
-					<p>{getDateString(comment?.commentedAt)}</p>
+					<p className="comment__time">{commentedAt}</p>
 				</div>
 				<Options options={options} id={comment._id} />
 			</div>
