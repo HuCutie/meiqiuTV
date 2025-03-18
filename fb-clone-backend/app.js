@@ -18,8 +18,8 @@ const app = express();
 
 // Load SSL certificate and private key
 const sslOptions = {
-    cert: fs.readFileSync("/root/cert.crt"),
-    key: fs.readFileSync("/root/private.key"),
+    cert: fs.readFileSync(process.env.SSL_CERT_PATH),
+    key: fs.readFileSync(process.env.SSL_KEY_PATH),
 };
 
 const { Server } = require("socket.io");

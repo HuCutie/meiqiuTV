@@ -1,2 +1,2 @@
-const serverUri = "https://hucutie.us.kg:5000";
+const serverUri = process.env.REACT_APP_SERVER_URI;
 export default serverUri;
