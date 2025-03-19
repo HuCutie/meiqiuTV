@@ -28,6 +28,8 @@ const ProfileCard = ({ id, isOwnProfile }) => {
 	let { name, email, about, dob, location, createdAt, profileImage } = user;
 	createdAt = `Joined on ${getDateString(createdAt)}`;
 	dob = getDateString(dob);
+	dob = getDateString(dob).split(" ")[0] + " " + getDateString(dob).split(" ")[1] + " " + getDateString(dob).split(" ")[2];
+    console.log("Processed DOB:", dob);
 
 	const sendMessage = async () => {
 		if (isGuest) return dispatch(showModal({ msg: "You must be logged in to do this action!!" }));
