@@ -105,7 +105,7 @@ const ProfileCard = ({ id, isOwnProfile }) => {
 				</div>
 			) : (
 				<div className="btn-group">
-					<button onClick={sendMessage}>Message</button>
+					<button disabled>Message</button>
 					<button disabled>Add Friend</button>
 				</div>
 			)}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dp, closeIcon, searchIcon, hamburger, chatIcon, homeIcon } from "../../assets";
+import { dp, closeIcon, searchIcon, hamburger, homeIcon } from "../../assets";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsLoading, toggleSidebar } from "../../features/modalSlice";
@@ -81,9 +81,6 @@ const Appbar = () => {
 								className="appbar__profile__dp"
 								title="profile"
 							/>
-						</Link>
-						<Link to="/chat">
-							<img src={chatIcon} alt="chat" className="chat" />
 						</Link>
 					</>
 				)}

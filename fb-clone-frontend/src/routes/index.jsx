@@ -11,8 +11,6 @@ import ProgressBar from "react-topbar-progress-indicator";
 const Home = lazy(() => import("../pages/Home/Home"));
 const SinglePost = lazy(() => import("../pages/Singlepost/SinglePost"));
 const Profile = lazy(() => import("../pages/Profile/Profile"));
-const Chat = lazy(() => import("../pages/Chat/Chat"));
-const MessengerPage = lazy(() => import("../pages/Messenger/Messenger"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 
 const Layout = () => {
@@ -51,8 +49,6 @@ const Router = () => {
 				<Route index element={<Home />} />
 				<Route path="/post/:id" element={<SinglePost />} />
 				<Route path="/user/:id" element={<Profile />} />
-				<Route path="/chat" element={authenticate(Chat)} />
-				<Route path="/chat/messenger" element={authenticate(MessengerPage)} />
 				<Route path="*" element={<NotFound />} />
 			</Route>
 		</Routes>
