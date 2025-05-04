@@ -5,9 +5,7 @@ import ImageUpload from "../ImageUpload/ImageUpload";
 import useFetch from "../../hooks/useFetch";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createChat } from "../../features/messageSlice";
 import Backdrop from "../Backdrop/Backdrop";
-import { setIsLoading, showModal } from "../../features/modalSlice";
 import "./profilecard.css";
 import { logout } from "../../features/userSlice";
 import getDateString from "../../utils/getDateString";
@@ -21,25 +19,13 @@ const ProfileCard = ({ id, isOwnProfile }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [isUploading, setIsUploading] = useState(false);
 
-	const customFetch = useFetch();
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	let { name, email, about, dob, location, createdAt, profileImage } = user;
 	createdAt = `Joined on ${getDateString(createdAt)}`;
 	dob = getDateString(dob);
 	dob = getDateString(dob).split(" ")[0] + " " + getDateString(dob).split(" ")[1] + " " + getDateString(dob).split(" ")[2];
     console.log("Processed DOB:", dob);
-
-	const sendMessage = async () => {
-		if (isGuest) return dispatch(showModal({ msg: "You must be logged in to do this action!!" }));
-		dispatch(setIsLoading(true));
-		dispatch(createChat({ customFetch, id })).then(() => {
-			if (window.innerWidth < 801) navigate("/chat/messenger");
-			else navigate("/chat");
-			dispatch(setIsLoading(false));
-		});
-	};
 
 	const hideUploading = () => {
 		setIsUploading(false);
