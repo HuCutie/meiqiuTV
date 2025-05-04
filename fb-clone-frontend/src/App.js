@@ -8,8 +8,6 @@ import SERVER_URI from "./serverUri";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./features/userSlice.js";
 import { setSocket } from "./features/socketSlice";
-// import { showModal } from "./features/modalSlice.js";
-// import { addMessages, clearMessage, deleteChat, updateChats } from "./features/messageSlice.js";
 import { addOnline, getUsers } from "./features/usersSlice.js";
 import { setPosts } from "./features/postSlice.js";
 //components
@@ -28,8 +26,6 @@ function App() {
 	const {
 		user: { id, isGuest },
 		modal: { isLoading, isSidebarVisible },
-		// socket: { socket },
-		// message: { to, conversationID },
 	} = useSelector(state => state);
 
 	//login
